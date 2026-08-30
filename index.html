@@ -8,6 +8,36 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
 <style>
 body{margin:0;font-family:system-ui;background:#0b1220;color:#eef2f7}.hidden{display:none!important}.wrap{max-width:1480px;margin:auto;padding:18px}.login{max-width:430px;margin:11vh auto;padding:26px;background:#131c2e;border:1px solid #2b3850;border-radius:20px}.login input,.login button{width:100%;box-sizing:border-box;padding:13px;border-radius:10px;margin:8px 0}.login input{background:#0f172a;color:white;border:1px solid #2b3850}.login button{border:0;font-weight:800;cursor:pointer}.msg{padding:10px;border-radius:10px;margin-top:10px}.ok{background:#064e3b}.err{background:#7f1d1d}.muted{color:#93a4ba;font-size:12px}header{border-bottom:1px solid #2b3850;background:#101827}.nav{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.nav button,.logout{padding:9px 13px;border:1px solid #2b3850;border-radius:10px;background:#0f172a;color:white;cursor:pointer}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:18px}.card{background:#131c2e;border:1px solid #2b3850;border-radius:16px;padding:16px}.label{font-size:12px;color:#93a4ba}.value{font-size:25px;font-weight:800;margin-top:7px}.positive{color:#86efac}.negative{color:#fca5a5}.tablewrap{overflow:auto;margin-top:18px;border:1px solid #2b3850;border-radius:14px}.table{width:100%;border-collapse:separate;border-spacing:0;min-width:1750px}.table th,.table td{padding:15px 18px;border-bottom:1px solid #2b3850;white-space:nowrap;text-align:left;line-height:1.5}.table th{background:#172238;position:sticky;top:0;z-index:1}.table tbody tr.weekdayRow{background:#111b2d}.table tbody tr.holidayRow{background:#1d2940}.table tbody tr:hover{background:#2b3d5c}.table td:last-child{white-space:normal;min-width:280px}.badge{display:inline-block;padding:3px 8px;border-radius:999px;font-size:12px;font-weight:700}.badge.weekday{background:#1e3a5f}.badge.holiday{background:#5b2d49}.chartbox{margin-top:18px;background:#131c2e;border:1px solid #2b3850;border-radius:16px;padding:16px;height:320px}.chartTitle{margin:0 0 10px;font-size:15px;font-weight:800}.status{margin-top:14px;padding:12px;border:1px solid #2b3850;border-radius:12px;background:#111827}.compareGrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin-top:16px}.compareCard{background:#111827;border:1px solid #2b3850;border-radius:14px;padding:16px}.compareCard h4{margin:0 0 10px}.statline{display:flex;justify-content:space-between;gap:12px;padding:6px 0;border-bottom:1px solid #233148}.recordGrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin-top:18px}.recordCard{background:#111827;border:1px solid #2b3850;border-radius:14px;padding:16px}.recordCard .big{font-size:24px;font-weight:800;margin:8px 0}
+
+/* 每日營運：用清楚的橫列與直欄色帶，讓手機橫向捲動時仍能快速辨識資料類型。 */
+#daily .table{min-width:2100px}
+#daily .table th,#daily .table td{border-right:1px solid rgba(148,163,184,.16)}
+#daily .table tbody tr.weekdayRow{background:#0e2034}
+#daily .table tbody tr.holidayRow{background:#28182f}
+#daily .table tbody tr.weekdayRow td:first-child{border-left:5px solid #38bdf8}
+#daily .table tbody tr.holidayRow td:first-child{border-left:5px solid #f472b6}
+#daily .table tbody tr:first-child td{box-shadow:inset 0 2px #facc15,inset 0 -2px #facc15}
+#daily .table tbody tr:hover td{filter:brightness(1.32)}
+
+/* 表頭依資料群組上色：基本、收入、效率、里程、成本、淨利。 */
+#daily .table th:nth-child(-n+3){background:#1e3a5f}
+#daily .table th:nth-child(n+4):nth-child(-n+6){background:#14532d}
+#daily .table th:nth-child(n+7):nth-child(-n+12){background:#164e63}
+#daily .table th:nth-child(n+13):nth-child(-n+15){background:#713f12}
+#daily .table th:nth-child(n+16):nth-child(-n+17){background:#7f1d1d}
+#daily .table th:nth-child(n+18):nth-child(-n+19){background:#065f46}
+#daily .table th:nth-child(20){background:#334155}
+
+/* 內容欄採半透明色帶，保留平日藍、假日紫的整列底色。 */
+#daily .table td:nth-child(-n+3){background:rgba(59,130,246,.10)}
+#daily .table td:nth-child(4){background:rgba(34,197,94,.16);color:#bbf7d0;font-weight:800}
+#daily .table td:nth-child(5){background:rgba(245,158,11,.18);color:#fde68a;font-weight:800}
+#daily .table td:nth-child(6){background:rgba(14,165,233,.18);color:#bae6fd;font-weight:800}
+#daily .table td:nth-child(n+7):nth-child(-n+12){background:rgba(6,182,212,.10)}
+#daily .table td:nth-child(n+13):nth-child(-n+15){background:rgba(245,158,11,.11)}
+#daily .table td:nth-child(n+16):nth-child(-n+17){background:rgba(239,68,68,.14);color:#fecaca}
+#daily .table td:nth-child(n+18):nth-child(-n+19){background:rgba(16,185,129,.16);color:#a7f3d0;font-weight:800}
+#daily .table td:nth-child(20){background:rgba(100,116,139,.10)}
 </style>
 </head>
 <body>
